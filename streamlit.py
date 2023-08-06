@@ -32,7 +32,7 @@ def main():
         st.download_button('Download Your New DB Script', data=new_db_script, file_name='New_DB_Script.sql', mime='text/sql')
 
     else:
-        st.info('Please Upload the DB Script that you would like to Convert.')
+        st.info('Use At Your Own Risk 🤡')
 
 if __name__ == '__main__':
     main()
