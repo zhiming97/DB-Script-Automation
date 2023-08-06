@@ -10,6 +10,8 @@ def DB_SCIRPT_CLEANUP(db):
         for match in matches:
             formatted_match = datetime.strptime(match, "'%Y-%m-%d %H:%M:%S'").strftime('SYSDATE')
             db = db.replace(match, formatted_match)
+        
+        db = db.replace(';', '@')
 
         return db
     except Exception as e:
@@ -23,8 +25,6 @@ def main():
     if uploaded_file is not None:
         content = uploaded_file.read().decode('utf-8')
         modified_db_script = DB_SCIRPT_CLEANUP(content)
-        sql_content= sql_content.replace(';', '@')
-
         
         st.text(modified_db_script)
         
