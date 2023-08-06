@@ -31,15 +31,13 @@ def main():
         # Replace datetime with SYSDATE
         modified_content = replace_datetime_with_sysdate(content)
 
-        # Save the modified content to a new file
-        modified_file_path = os.path.join('modified_files', uploaded_file.name)
-        with open(modified_file_path, 'w') as modified_file:
-            modified_file.write(modified_content)
+       # Display the modified content
+        st.text(modified_content)
 
-        st.success('Datetime replaced successfully!')
+        # Download link for the modified file
+        modified_bytes = modified_content.encode('utf-8')
+        st.download_button('Download Modified File', data=modified_bytes, file_name='modified_script.sql', mime='text/sql')
 
-        # Display download link for the modified file
-        st.markdown(f"Download the modified file: [Modified File]({modified_file_path})")
     else:
         st.info('Please upload a dbscript file.')
 
