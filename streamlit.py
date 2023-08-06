@@ -23,9 +23,11 @@ def main():
     if uploaded_file is not None:
         content = uploaded_file.read().decode('utf-8')
         modified_db_script = DB_SCIRPT_CLEANUP(content)
+        sql_content= sql_content.replace(';', '@')
 
+        
         st.text(modified_db_script)
-
+        
         new_db_script = modified_db_script.encode('utf-8')
         st.download_button('Download Your New DB Script', data=new_db_script, file_name='New_DB_Script.sql', mime='text/sql')
 
