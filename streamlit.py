@@ -18,7 +18,7 @@ def DB_SCIRPT_CLEANUP(db):
 def main():
     st.title('DB Script Preparation Tool')
 
-    uploaded_file = st.file_uploader('Upload a dbscript file', type=['sql'])
+    uploaded_file = st.file_uploader('Upload Your DB Script', type=['sql'])
 
     if uploaded_file is not None:
         content = uploaded_file.read().decode('utf-8')
