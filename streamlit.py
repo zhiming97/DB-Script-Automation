@@ -16,7 +16,7 @@ def DB_SCIRPT_CLEANUP(db):
         return f"Error: {e}"
 
 def main():
-    st.title('DB Script Preparation Tool')
+    st.title('DB Script Preparation Tool 🤖')
 
     uploaded_file = st.file_uploader('Upload Your DB Script', type=['sql'])
 
