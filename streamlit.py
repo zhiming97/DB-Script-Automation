@@ -8,7 +8,7 @@ def DB_SCIRPT_CLEANUP(db):
         datetime_pattern = r"'\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d{3}'"
         matches = re.findall(datetime_pattern, db)
         for match in matches:
-            formatted_match = datetime.strptime(match, "'%Y-%m-%d %H:%M:%S'").strftime('SYSDATE')
+            formatted_match = datetime.strptime(match, "'%Y-%m-%d %H:%M:%S.000'").strftime('SYSDATE')
             db = db.replace(match, formatted_match)
         
         db = db.replace(';', '@')
